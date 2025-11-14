@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+<meta charset="UTF-8">
+    <title>System Monitoring Dashboard</title>
+    <style>
+        body { font-family: Arial; background-color: #f2f2f2; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; }
+        h2 { color: #333; }
+        .alert { color: red; font-weight: bold; }
+    </style>
+
+</head>
+
+</body>
+<div class="container">
+<h2>System Monitoring Dashboard</h2>
+{% if messge %}
+<p class="alert">
+    {{nessage}}
+</p>
+{% endif %}
+<p><strong>CPU Usage </strong>{{ cpu_percent}} % ({{cpu_cores}}cores)</p>
+<p><strong>Memory Usage </strong>{{mem_percent }}</p>
+<p><strong>Swap Usage </strong>{{swap_percent}}</p>
+<p><strong>Disk Usage </strong>{{disk_percent}}</p>
+<p><strong>Proceses </strong>{{process_count}}</p>
+<p><strong>Uptime </strong>{{uptime}} seconds</p>
+<p><strong>Network </strong>{{bytes_sent}} mbps, Received {{bytes_recv}} mbps</p>
+
+
+</div>
+</html>
