@@ -2,3 +2,6 @@ config
 *.pem
 google_auth.json
 token.json
+.venv
+.ruff_cache
+

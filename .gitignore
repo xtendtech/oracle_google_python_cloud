@@ -1,2 +1,4 @@
 config
 *.pem
+.venv
+.ruff_cache
