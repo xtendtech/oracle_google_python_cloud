@@ -31,18 +31,18 @@ SUBNET_ID = "ocid1.subnet.oc1.ap-mumbai-1.aaaaaaaahwkqbiutejg2ngb6fugscpiyvg5yr5
 IMAGE_ID = "ocid1.image.oc1.ap-mumbai-1.aaaaaaaarkpc5y2ufls3xeb4o6jh2wbmzzleklbkjkfvhxqcvwof5yf2l5gq"  # Ubuntu Mumbai
 OPERATING_SYSTEM = 'Canonical Ubuntu'
 
-SSH_PUBLIC_KEY = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCfmtfdunI/jbvolinpESOZdm3GEsz8ePs+yo6tX+AEhkVpTGw8AGuT5saghcuyF0TwPIxMpH8gtKTZvdcXbdzdL33dX201Pj/aCG4A2IFcQv5Ucg/F7JS52oq69+oPcrMCNELGYjyDvYK2t4KaOe69t3MmdpYC8MBmxTanGmuuP1UGc6BViH5Kn48L1QXqsE75MBHWXLMemD36P9y7l0atQ4JVkmKM9TAJFLIzeiRl1NB70coHHoojfR1oLljjB2QbLuEILybFnitFkVqn1WuW3Oz2JMR03vPoNqKbuvgjRA8KS4g72aX6ku/76E14tUCrM1IfxhexLa+LBiAs13rEG/vo7mxE3zcgNP7oAROC1viV2oY4pDFUspF+FN8kNNkiBOO0lu33Jpx4ZIg/gVAgbbqoofLubCfnCFPMo+hwVlva9+9v1ZB3PmWMqiCm38Pl0KukFvXBEdbI8r143dD8DJryCT5mxbkCDyRXjKwscWCPJ8UF0euozFoui8RNhLOAlPrJbrUR6gJJN1b9wq7Kikdqe+vIiw6cn6AOXFTB8Rda4MgzWYoNNGEMDoM2xltoOnYuPKqLdf/BirWugZI0whpWDtncmAz5X0dPoY4lXlprKsG35PsHwBstzsQpTSuX+2FF2Pe519jfU95YimqBHqg/g+CnGiPuj9mGUsKRQQ== root@99978" 
 SSH_PUBLIC_KEY_PATH= Path(config["key_file"] )
 # print(SSH_PUBLIC_KEY_PATH)
 def read_ssh_public_key(file_path:Path)->str:
+    ssh_pub_key = ""
     if file_path.is_file:
      with open(file_path,"r") as pub_key:
-        SSH_PUBLIC_KEY=pub_key.read()
+        ssh_pub_key = pub_key.read()
     else:
      print("Public Key File not found")
-    return ( SSH_PUBLIC_KEY)
+    return ssh_pub_key
         
-# SSH_PUBLIC_KEY=read_ssh_public_key(SSH_PUBLIC_KEY_PATH)
+SSH_PUBLIC_KEY=read_ssh_public_key(SSH_PUBLIC_KEY_PATH)
  
 SHAPE="VM.Standard.A1.Flex"
 OCPUS = 2  # Free tier allows up to 4 OCPUs total
